@@ -29,6 +29,19 @@
             <p>powered by <a href="https://aylien.com/text-api/"><strong>ALIEN ANALYSIS API</strong></a></p>
             <p>Natural Language Processing for Effective Understanding of Human-Generated Text</p>
         </footer>
-
+        <script>
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performant
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration =>{
+                        console.log('SW registered successfuly: ', registration);
+                    })
+                });
+            }else{
+                console.log("Service Working not supported");
+            }
+        </script>
     </body>
 </html>
